@@ -1,0 +1,12 @@
+Exemplos de criação de usuários e senhas...
+
+create user 'teste'@'12.12.12.12' identified by 'teste123';
+create user 'teste2'@'%' identified by '1234567';
+create user 'teste3'@'%' identified with mysql_native_password by '1233456';
+
+O que significa a % ... ?
+E o que significa o uso do mysql_native_password?
+
+rename user 'teste'@'12.12.12.12' to 'teste'@'%';
+
+O que significa o uso do rename?

@@ -1,0 +1,95 @@
+DDL - Data Definition Language - Linguagem de Definição de Dados.
+São os comandos que interagem com os objetos do banco.
+São comandos DDL : CREATE, ALTER, DROP, TRUNCATE e RENAME
+
+Exemplos:
+
+ --- CREATE --
+CREATE TABLE students
+(
+id int,
+name varchar(30),
+class varchar(10)
+);
+
+-- CREATE TABLE AS --
+CREATE TABLE AS select xxxx ;
+
+-- ALTER --
+ALTER TABLE table_name
+ADD column_name datatype;
+
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name; 
+
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype; 
+
+-- DROP -- 
+DROP TABLE XXXX;
+DROP DATABASE XXXX;
+DROP USER XXX@XXXX;
+
+-- TRUNCATE --
+TRUNCATE TABLE XXXX;
+
+-- RENAME -- 
+RENAME TABLE XXXX TO YYYY;
+
+
+DML - Data Manipulation Language - Linguagem de Manipulação de Dados.
+São os comandos que interagem com os dados dentro das tabelas.
+São comandos DML : INSERT, DELETE e UPDATE
+
+INSERT INTO students (id, name, class) values (1, 'teste', 'fatec');
+INSERT INTO students (id, name, class) values 
+(2, 'teste2', 'fatec'),
+(3, 'teste3', 'fatec'),
+(4, 'teste4', 'fatec'),
+(5, 'teste5', 'fatec'),
+(6, 'teste6', 'fatec'),
+(7, 'teste7', 'fatec')
+;
+
+-- DELETE FROM --
+*** START TRANSACTION **
+
+Caso vá apagar e não tenha certeza ... 
+start transaction;
+DELETE FROM students;
+rollback;
+
+Caso tenha ...
+start transaction;
+DELETE FROM students;
+commit;
+
+DELETE FROM students where name = 'xxxxx';
+
+-- UPDATE -- 
+
+UPDATE DE REGISTROS em tabela
+UPDATE students set name = 'batman' where xxxxx
+******* USAR O UPDATE SEM WHERE VAI ATUALIZAR TODOS OS DADOS COM O MESMO REGISTRO ESCOLHIDO ***
+
+DQL - Data Query Language - Linguagem de Consulta de dados.
+São os comandos de consulta.
+São comandos DQL : SELECT (é o comando de consulta)
+Aqui cabe um parênteses. Em alguns livros o SELECT fica na DML em outros tem esse grupo próprio.
+
+Exemplos:
+SELECT * FROM students;
+SELECT name from students where name = 'xxxx';
+select count(*) from students;
+
+
+DCL - Data Control Language - Linguagem de Controle de Dados.
+São os comandos para controlar a parte de segurança do banco de dados.
+    São comandos DCL : GRANT, REVOKE E DENY.
+
+Exemplos:
+grant all privileges on *.* to 'teste'@'%';
+grant select on students.* to 'teste'@'%';
+
+revoke all privileges on *.* to 'teste'@'%';
+revoke select on students.* to 'teste'@'%';
