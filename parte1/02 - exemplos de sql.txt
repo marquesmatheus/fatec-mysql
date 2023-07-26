@@ -89,7 +89,10 @@ São os comandos para controlar a parte de segurança do banco de dados.
 
 Exemplos:
 grant all privileges on *.* to 'teste'@'%';
-grant select on students.* to 'teste'@'%';
+grant select on database.* to 'teste'@'%';
 
 revoke all privileges on *.* to 'teste'@'%';
-revoke select on students.* to 'teste'@'%';
+revoke select on database.* to 'teste'@'%';
+
+deny delete on database.* to 'teste'@'%';
+
