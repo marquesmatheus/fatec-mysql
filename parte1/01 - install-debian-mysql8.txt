@@ -14,5 +14,8 @@ apt install lsof
 lsof -i -P -n
 mysql_secure_installation
 
+mysqld --help --verbose
+mysqld --help --verbose | grep my.cnf
+
 -- Arquivo de exemplo de banco
 nations.sql
