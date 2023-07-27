@@ -45,3 +45,7 @@ Indicação de Livros:
 SQL o guia essencial - https://www.amazon.com.br/SQL-Essencial-Manual-Refer%C3%AAncia-Profissional/dp/8576083736
 
 Guia Mangá de Banco de Dados - https://www.amazon.com.br/Mang%C3%A1-Bancos-Dados-V%C3%A1rios-Autores/dp/8575221639
+
+Aprendendo MySQL - https://www.amazon.com.br/Aprendendo-MySQL-Hugh-Tahaghoghi-Williams/dp/8576081474
+
+Aprendendo SQL - https://www.amazon.com.br/Aprendendo-SQL-Dominando-Fundamentos-ebook/dp/B07RT5S2NF
