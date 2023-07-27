@@ -1,0 +1,26 @@
+Recuperar senha de root
+
+1- Pare o serviço do MySQL no servidor
+
+   /etc/init.d/mysql stop
+
+Verifique se há algum processo do mysql rodando e o encerre
+
+    ps aux | grep mysql
+    kill pid
+
+2- Inicie o mysqld_safe com a opção --skip-grant-tables para ignorar a tabela de privilégios e conecte-se ao mysql
+
+   mysqld_safe --skip-grant-tables &
+   mysql -u root
+   use mysql;
+
+3- Altere a senha o usuário root
+
+  alter user identified by 'novasenha';
+  flush privileges;
+  Ctrl + d
+
+4- Reinicie o mysql\\
+  /etc/init.d/mysql stop
+ /etc/init.d/mysql start

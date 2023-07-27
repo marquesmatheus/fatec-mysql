@@ -1,0 +1,3 @@
+Backup MySQL
+
+mysqldump -uroot -p datatabase > database.sql

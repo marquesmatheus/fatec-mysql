@@ -1,0 +1,15 @@
+Criando usuários:
+
+create user 'nome'@'endereço_ip' identified by 'senha_feliz';
+create user 'nome'@'endereço_ip' identified with mysql_native_password by 'senha_feliz';
+
+
+create user 'teste3'@'%' identified with mysql_native_password by '1233456';
+
+O que significa a % ... ?
+E o que significa o uso do mysql_native_password?
+
+rename user 'teste'@'12.12.12.12' to 'teste'@'%';
+
+O que significa o uso do rename?
+

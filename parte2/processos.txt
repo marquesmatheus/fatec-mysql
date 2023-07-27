@@ -1,0 +1,39 @@
+Como ver os processos de banco de dados:
+
+Dentro do banco de dados:
+show processlist;
+show full processlist;
+
+Via linux:
+ps aux | grep mysql
+
+
+Ou ...
+
+mysql> show full processlist;
++-----+--------+-----------------+----------+---------+------+----------+-----------------------+
+| Id  | User   | Host            | db       | Command | Time | State    | Info                  |
++-----+--------+-----------------+----------+---------+------+----------+-----------------------+
+|   2 | root   | localhost       | adspider | Query   |    0 | starting | show full processlist |
+| 257 | fotios | localhost:35828 | adspider | Sleep   |   20 |          | NULL                  |
+| 259 | fotios | localhost:35832 | adspider | Sleep   |   17 |          | NULL                  |
+| 261 | fotios | localhost:35836 | adspider | Sleep   |    3 |          | NULL                  |
+| 263 | fotios | localhost:35840 | adspider | Sleep   |    1 |          | NULL                  |
++-----+--------+-----------------+----------+---------+------+----------+-----------------------+
+5 rows in set (0.00 sec)
+
+
+Caso junto ao Host esteja alguma porta sendo utilizada, usar o comando linux abaixo para encontrar o processo X em questão
+
+[root@li1849-192 ~]# netstat -np | grep 35828
+tcp6       0      0 127.0.0.1:35828         127.0.0.1:3306          ESTABLISHED 28509/java
+tcp6       0      0 127.0.0.1:3306          127.0.0.1:35828         ESTABLISHED 28432/mysqld
+
+Verificar conexões presas...
+
+select id, time, info as query from information_schema.processlist 
+where user='nome_usuario' and command!='Sleep' and time>=10 order by time desc;
+
+Eliminar sessão dentro do banco:
+kill id;
+
