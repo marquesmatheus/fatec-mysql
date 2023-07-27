@@ -1,0 +1,35 @@
+Uso dos índices MySQL
+
+create table funcionarios(
+    id int not null auto_increment primary key,
+    nome varchar(200) not null,
+    funcao varchar(100),
+    salario decimal
+);
+
+DROP PROCEDURE IF EXISTS insere_dados;
+DELIMITER //
+CREATE PROCEDURE insere_dados()   
+BEGIN
+DECLARE i INT DEFAULT 1; 
+DECLARE s decimal;
+WHILE (i <= 40000) DO
+    set s = rand()*100000;
+    INSERT INTO funcionarios (nome,funcao,salario) VALUES ("teste", "TI", s);
+    SET i = i+1;
+END WHILE;
+END;
+//  
+DELIMITER ;
+
+create index idx_id_funcao on funcionarios (id, funcao);
+
+create index idx_id_nome on funcionarios (id, nome);
+
+create index idx_sal on funcionarios (salario);
+
+create index idx_id_sal on funcionarios (id, salario);
+
+--- ver indices das tabelas ---
+show index from nome_da_tabela;
+

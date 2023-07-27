@@ -1,3 +1,15 @@
 Backup MySQL
 
+Somente 1 base de dados:
 mysqldump -uroot -p datatabase > database.sql
+
+Todas bases de dados ... BKP FULL
+mysqldump -hhost-ou-ip -uroot -p --all-databases --opt > /caminho/arquivo.sql\\
+
+Somente a estrutura do banco sem os dados:
+mysqldump --no-data -uroot -p mydatabase > arquivo.sql
+
+Restore MySQL
+mysql -uroot -p -Dbase-de-dados < /caminho/arquivo.sql
+
+

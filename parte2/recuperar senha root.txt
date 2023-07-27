@@ -3,9 +3,12 @@ Recuperar senha de root
 1- Pare o serviço do MySQL no servidor
 
    /etc/init.d/mysql stop
+   ou
+   systemctl stop mysql
 
 Verifique se há algum processo do mysql rodando e o encerre
 
+    ps aux | grep mysqld
     ps aux | grep mysql
     kill pid
 
@@ -14,13 +17,20 @@ Verifique se há algum processo do mysql rodando e o encerre
    mysqld_safe --skip-grant-tables &
    mysql -u root
    use mysql;
+   flush privileges;
 
 3- Altere a senha o usuário root
 
-  alter user identified by 'novasenha';
+  ALTER USER 'root'@'localhost' IDENTIFIED BY 'novasenha';
   flush privileges;
   Ctrl + d
 
 4- Reinicie o mysql\\
   /etc/init.d/mysql stop
+  ou 
+  systemctl stop mysql
+
+
  /etc/init.d/mysql start
+ ou
+ systemctl start mysql
